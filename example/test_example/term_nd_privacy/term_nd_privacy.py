@@ -1,6 +1,6 @@
 # 1달 28일
 def month_to_day(termdue): # termdue -> month
-    day = termdue*28
+    day = int(termdue)*28
     return day
 
 def ymd_to_day(ymd):
@@ -8,9 +8,10 @@ def ymd_to_day(ymd):
     m = ymd.split('.')[1]
     d = ymd.split('.')[2]
     
-    y_day = y*12*28
-    m_day = m*28
-    day = d
+    y_day = int(y)*12*28
+    m_day = int(m)*28
+    print(m, m_day)
+    day = int(d)
     
     totalday = y_day + m_day + day
     
@@ -54,3 +55,6 @@ def solution(today, terms, privacies):
             answer.append(idx+1)       
     
     return answer
+
+
+# print(solution("2022.05.19", ["A 6", "B 12", "C 3"], ["2021.05.02 A", "2021.07.01 B", "2022.02.19 C", "2022.02.20 C"]))
