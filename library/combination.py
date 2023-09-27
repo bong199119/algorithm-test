@@ -32,4 +32,6 @@ def permutations_4(array, r):
             for next in permutations_4(array, r-1):
                 yield [array[i]] + next
 
-print(gen_permutations([1,2,3],3))
+
+
+                    
