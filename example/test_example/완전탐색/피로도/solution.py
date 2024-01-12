@@ -6,6 +6,7 @@ def make_permutation(dungeons):
     list_dungeons = []
     for i in range(len(dungeons)):
         list_dungeons += list(itertools.permutations(dungeons, i + 1))
+        # print(list_dungeons)
 
     return list_dungeons
 
@@ -27,6 +28,7 @@ def canPass_dungeon(k, list_dungeons):
 
 def solution(k, dungeons):
     answer = -1
+    global list_dungeons_passed
 
     list_dungeons = make_permutation(dungeons)
     list_dungeons_passed = canPass_dungeon(k, list_dungeons)
@@ -34,12 +36,14 @@ def solution(k, dungeons):
     for dungeons_passed in list_dungeons_passed:
         if answer < len(dungeons_passed):
             answer = len(dungeons_passed)
+            list_dungeons_passed = dungeons_passed
 
     return answer
 
 
 dungeons = [[80,20],[50,40],[30,10],[80,20],[50,40],[10,40],[10,40],[10,40]]
 k = 80
+list_dungeons_passed = []
 
 answer = solution(k, dungeons)
 print(answer)
@@ -47,4 +51,4 @@ print(answer)
 end_time = time.time()
 print(start_time, end_time)
 print('take_time : ', end_time - start_time)
-
+print(list_dungeons_passed)
