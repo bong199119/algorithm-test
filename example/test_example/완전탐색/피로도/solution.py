@@ -19,8 +19,9 @@ def canPass_dungeon(k, list_dungeons):
         for dungeon in dungeons:
             if k_forpass >= dungeon[0]:
                 k_forpass -= dungeon[1] 
-                if k_forpass >= 0:
-                    pass_num += 1
+                # if k_forpass >= 0: # 제한사항 <"최소 필요 피로도"는 항상 "소모 피로도"보다 크거나 같습니다.>으로인해 제거(필요없음)
+                pass_num += 1
+
         if pass_num == len(dungeons):
             list_dungeons_passed.append(dungeons)
 

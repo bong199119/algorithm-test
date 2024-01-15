@@ -13,7 +13,6 @@ def dfs(dungeons, k, list_visit):
         else:
             list_totalcount.append(list_visit.count(1))
 
-
 def solution(k, dungeons):
     answer = -1
     list_visit = [0] * len(dungeons)
