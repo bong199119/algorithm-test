@@ -3,7 +3,7 @@ import itertools
 def make_permutation(list_words):
     list_words_per = []
     for idx in range(len(list_words)):
-        list_words_per += list(itertools.combinations_with_replacement(list_words, idx+1))
+        list_words_per += list(itertools.product(list_words, repeat = idx+1))
 
     return list_words_per
 
