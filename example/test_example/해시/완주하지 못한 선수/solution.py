@@ -1,11 +1,23 @@
 def solution(participant, completion):
     answer = ''
-    participant_copy = participant[:]
-    for part in participant:
-        if part in completion:
-            participant_copy.remove(part)
+    # completion_copy = completion[:]
+    for part in completion:
+        participant.remove(part)
 
-    answer = participant_copy[0]
+    answer = participant[0]
+    return answer
+
+def solution(participant, completion):
+    answer = ''
+    participant.sort()
+    completion.sort()
+    completion.append('none')
+
+    for idx, part in enumerate(participant):
+        if part != completion[idx]:
+            answer = part
+            break
+
     return answer
 
 
