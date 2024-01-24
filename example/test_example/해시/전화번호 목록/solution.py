@@ -1,8 +1,13 @@
 def solution(phone_book):
     answer = True
+    phone_book.sort()
+    print(phone_book)
+    # for num in phone_book:
+    #     for num_com in phone_book:
+    #         if num != num_com and num == num_com[:len(num)]:
+    #             answer = False
+
     return answer
-
-
 
 
 phone_book = ["119", "97674223", "1195524421"]
