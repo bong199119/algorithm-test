@@ -1,41 +1,41 @@
-def sort_genre(list_genre_totalplay):
-    
-    return list_genre_totalplay
+def sort_genres(dict_genres):
+    list_genre = []
+    return list_genre
+
+def sort_plays(list_plays):
+    return list_plays
 
 def solution(genres, plays):
     answer = []
     dict_genres = {}
-    dict_plays = {}
-    list_selected = []
-    list_genre_totalplay = []
 
     for idx, play in enumerate(plays):
-        dict_plays[play] = idx
-
         if genres[idx] not in dict_genres:
             dict_genres[genres[idx]] = {}
-            dict_genres[genres[idx]]['plays'] = [play]
+            dict_genres[genres[idx]]['plays'] = [[play, idx]]
             dict_genres[genres[idx]]['total plays'] = play
 
         else:
-            dict_genres[genres[idx]]['plays'].append(play)
+            dict_genres[genres[idx]]['plays'].append([play, idx])
             dict_genres[genres[idx]]['total plays'] += play
 
-    for genre in dict_genres:
-        dict_genres[genre].sort()
-        list_genre_totalplay.append([genre, dict_genres[genre]['total plays'], dict_genres[genre][-2:]])
-    
-    list_genre_totalplay = sort_genre(list_genre_totalplay)
-    
-    for genre_totalp_top2 in list_genre_totalplay:
-        first = genre_totalp_top2[-1][0]
-        sec = genre_totalp_top2[-1][1]
-        answer.append(dict_plays[first])
-        answer.append(dict_plays[sec])
+    list_genre = sort_genres(dict_genres)
 
-    print(dict_genres)
-    print(dict_plays)
-    print(list_selected)
+    for genre in list_genre:
+        list_plays = dict_genres[genre]['plays']
+        list_plays = sort_plays(list_plays)
+
+        if len(list_plays) > 1:
+            first_idx = list_plays[0][1]
+            second_idx = list_plays[1][1]
+            
+            answer.append(first_idx)
+            answer.append(second_idx)
+
+        elif len(list_plays) == 1:
+            first_idx = list_plays[0][1]
+            answer.append(first_idx)
+
     return answer
 
 

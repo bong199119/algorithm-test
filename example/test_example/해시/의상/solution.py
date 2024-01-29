@@ -8,8 +8,10 @@ def solution(clothes):
         else:
             dic_cloth[cloth[1]].append(cloth[0])
 
-    print(dic_cloth)
-        
+    count = 1
+    for cloth in dic_cloth:
+        count *= len(dic_cloth[cloth])
+    answer = count- 1
     return answer
 
 
