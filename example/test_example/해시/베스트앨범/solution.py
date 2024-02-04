@@ -1,15 +1,15 @@
 def sort_genres(list_genre, dict_genres):
     for i in range(len(list_genre) - 1):
         for j in range(len(list_genre) - i - 1):
-            if dict_genres[list_genre[j]] > dict_genres[list_genre[j+1]]:
+            if dict_genres[list_genre[j]]['total plays'] < dict_genres[list_genre[j+1]]['total plays']:
                 list_genre[j], list_genre[j+1] = list_genre[j+1], list_genre[j]
-    
+
     return list_genre
 
 def sort_plays(list_plays):
     for i in range(len(list_plays) - 1):
         for j in range(len(list_plays) - i - 1):
-            if list_plays[j][0] > list_plays[j+1][0]:
+            if list_plays[j][0] < list_plays[j+1][0]:
                 list_plays[j], list_plays[j+1] = list_plays[j+1], list_plays[j]
 
     return list_plays
